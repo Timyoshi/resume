@@ -1,0 +1,222 @@
+%-------------------------
+% Resume in Latex
+% Author : Timothy Kilmer
+% Inspirations : Aras Güngöre -> https://github.com/arasgungore
+% License : MIT
+%------------------------
+
+\documentclass[letterpaper,10pt]{article}
+
+
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\usepackage[english]{babel}
+\usepackage{tabularx}
+\usepackage{multicol}
+\usepackage{xifthen}
+
+\pagestyle{fancy}
+\fancyhf{} % clear all header and footer fields
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+
+\addtolength{\oddsidemargin}{-0.5in}
+\addtolength{\evensidemargin}{-0.5in}
+\addtolength{\textwidth}{1in}
+\addtolength{\topmargin}{-.5in}
+\addtolength{\textheight}{1.0in}
+
+\urlstyle{same}
+
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+\usepackage[utf8]{inputenc}
+
+\titleformat{\section}
+	{\vspace{-4pt}\scshape\raggedright\large}
+	{}
+	{0em}
+	{}
+	[\titlerule \vspace{-5pt}]
+
+
+\def\name{Timothy W. Kilmer Jr.}
+\def\email{timothywkilmer@gmail.com}
+
+\def\address{3935 Colechester Mtn Rd. Walton, NY 13856}
+\def\phoneNumber{(607) 643-6631}
+
+%custom commands for document 
+
+
+
+
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.15in, label={}]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+
+\newcommand{\resumeItemListStart}{\begin{itemize}}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
+
+\newcommand{\resumeSubheading}[4]{
+	\vspace{-2pt}\item
+	\begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+		\textbf{#1} & #3 \\
+		\textit{\small#2} & \textit{\small #4} \\
+	\end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeSubSubheading}[2]{
+	\vspace{-2pt}\item
+	\begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+		\textit{\small#1} & \textit{\small #2} \\
+	\end{tabular*}\vspace{-7pt}
+}
+
+
+\newcommand{\resumeItem}[1]{ \item\small{ { #1 \vspace{ -2pt } } } } 
+\newcommand{\skillItem}[2]{\item\textit{#1} : #2\vspace{-5pt}}
+
+%\newcommand{\isResumeItemEmpty}[1]
+
+%job specific items
+\newcommand{\jobItem}[9]{
+	\resumeSubheading{#1}{#2}{#3}{#4}
+		\resumeItemListStart
+			\ifthenelse{\isempty{#5}} {} {\resumeItem{ #5}}
+			\ifthenelse{\isempty{#6}} {} {\resumeItem{ #6}}
+			\ifthenelse{\isempty{#7}} {} {\resumeItem{ #7}}
+			\ifthenelse{\isempty{#8}} {} {\resumeItem{ #8}}
+			\ifthenelse{\isempty{#9}} {} {\resumeItem{ #9}}
+		\resumeItemListEnd
+	}
+
+\begin{document}
+	\begin{center}
+		{\LARGE \textbf{\name}} \\ \vspace{2pt}
+		{\small \address}\\ 
+		{\small \email \space \phoneNumber} \\ \vspace{2pt}		
+	\end{center}
+	
+	%-----------EDUCATION-----------
+	\section{EDUCATION}
+		\resumeSubHeadingListStart
+			\item \textbf{Clarkson University} \hfill Potsdam, NY  \\
+			\textit{Bachelor of Science in Electrical Engineering, Minor in Mathematics; Dean’s list, GPA 3.5 \hfill Fall 2016 - 2018}\\
+		 	\item \textbf{State University of New York (SUNY) at Oneonta} \hfill Oneonta, NY  \\
+		 	\textit{Bachelor of Science in Physics, 3+2 Engineering program; GPA 3.75 \hfill Fall 2013 - 2018}\\
+		\resumeItemListEnd
+
+	%-----------Skills /Summary-----------
+	\section{TECHNICAL SUMMARY}
+		\resumeSubHeadingListStart
+			\skillItem{Programming Languages}{C, C++, Python, VHDL, Verilog}
+			\skillItem{Drivers}{Ethernet, UART, I2C, SPI, ADC, DAC, Dataflash, Flash, GPIO}
+			\skillItem{Protocols}{TCP/IP, DHCP, MQTT, BSP Sockets, PMBus/SMBus, YModem, XModem, OPC-UA}
+			\skillItem{Lab / Debug Tools}{Oscilloscope, Function Generator, DC/AC Power Supplies, In circuit emulators (Jlink), GDB}
+			\skillItem{Development Tools}{E2 Studio, Eclipse, GCC, IAR, Wireshark, MATLAB, Simulink, Altera Quartus II, Xilinx Vivado}
+			\skillItem{CI/CD Tools}{Git, Gitlab, Jenkins, Docker, KVM}
+			\skillItem{Host / Target OS}{Windows, Linux, RTOS (ThreadX)}
+			\skillItem{Hardware Skills}{Reading Schematics, Digital Circuit Design, Controls Design, Soldering}
+			\skillItem{Documentation Tools}{Microsoft Office (Word, Excel, and Powerpoint), Jupyter Notebooks, \LaTeX}
+		\resumeItemListEnd
+
+	%-----------EXPERIENCE-----------
+	\section{PROFESSIONAL EXPERIENCE}
+		\resumeSubHeadingListStart
+			%ask Ken if i am allowed to talk about projects I have worked on?  or If I have to talk about vaigue ideas ?
+			\jobItem{International Business Machines (IBM)}{Firmware Design Engineer}{Poughkeepsie NY}{June 2018-present}
+			{Implemented feature to enable customers to configure and fetch both system and application configuration using DHCP options.}
+			{Developed and designed MQTT interface for firmware to communicate with system tools over MQTT for cloud administration of devices in the field. }
+			{Debuged and developed applications that have communicated over I2C,UART,SPI, program and dataflash, and TCP/IP.}
+			{Worked on code to update firmware and downstream devices over the network.}
+			{}
+			
+	
+			\jobItem{LC Drives}{Electrical/Controls Engineer Intern}{Potsdam NY}{May 2017-September 2017}
+			{Designed controls for automation using DipTrace schematic tool.}
+			{Integrated git and python for development of automation software.}
+			{Designed instrumentation controls to meet the national electric code by NFPA and project requirements.}
+			{}
+			{}
+	
+			\jobItem{Hack Potsdam Hack-a-thon at Clarkson University}{Participant}{Potsdam NY}{March 2017}
+			{Implemented CPU in VHDL hardware description language to design the ALU and VHDL code debugging. }
+			{Worked with Git and Git-hub for version control of group code. }
+			{}
+			{}
+			{}
+
+			\jobItem{Graphene Structure Simulation National Science Foundation}{Intern}{Troy, NY}{June - August 2016}
+			{Prepared scripts for handling input and to run files used in Density Functional Theory (DFT) calculations.}
+			{Rapid 3D prototyping of molecular structures for kinetic learning.}
+			{Basic introduction to Linux terminal and ssh file transfer from server and home computer.}
+			{ }
+			{ }
+				
+			\jobItem{Energy Harvesting/MEMS SUNY Research Foundation}{Intern}{Vestal, NY}{May - July 2015}
+			{Interned as a Lab Assistant in the research and fabrication of MEMS and energy harvesting devices.}
+			{Oversaw design of photomasks, photolithography printing and development, and Reactive Ion etching. }
+			{Worked on restoration of MEMS devices and proper clean room procedures using manual wire-binding machine. }
+			{ }
+			{ }
+	
+		\resumeItemListEnd
+	
+
+	%-----------leadership-----------
+	\section{Projects}
+		\resumeSubHeadingListStart
+			\resumeSubSubheading{Homelab}{idk}
+			\resumeSubSubheading{Sit Stand Arduino Mod}{idk}
+			\resumeSubSubheading{FPGA based Audio Multiplex/Mixer}{idk}
+		\resumeItemListEnd
+		
+%-----------leadership-----------
+	\section{LEADERSHIP EXPERIENCE}
+		\resumeSubHeadingListStart
+			\jobItem{SUNY Oneonta}{Peer and Group Tutor}{Oneonta, NY}{February 2015 - May 2016}
+				{Guided students in vector calculus in a one-on-one environment}
+				{Led student peers in general college physics for walk-in tutoring}
+				{}
+				{}
+				{}
+		
+			\jobItem{Oneonta Tech. and Engn. Club SUNY Oneonta}{Manager}{Oneonta, NY}{October 2015 - May 2016}
+				{ Supervised club and shop activities relating to electronics, wood working, and project design.}
+				{ Kept innovatory of tools, equipment, and supplies}
+				{}
+				{}
+				{}
+			
+			\jobItem{Physics and Astronomy Club}{Public Relations and Treasurer}{ Oneonta, NY}{September 2014 - May 2016}
+				{Public Relations- Held communication between public and club advertising events and activities.}
+				{Treasurer- Responsible for the management of club expenses and budget of \$500 for events and activities.}
+				{Coordinated club events and activities with President and Student Union}
+				{}
+				{}		
+				
+			\jobItem{Boy Scouts of America Troop 45}{Eagle Scout Award}{Walton, NY}{April 2012}
+				{Led and planned project that entailed the construction of record boards for local high school track teams.}
+				{Organized volunteers in community in the fund raising, construction, and instillation of the record boards.}
+				{Complied with constraints set by the high school, Boy Scouts of America, and State Code.}
+				{Documented project plans so they can be reproduced for anyone that wanted to reproduce my project.}	
+				{}		
+		\resumeItemListEnd
+		
+		
+	\section{RELEVANT AFFILIATIONS}
+		\resumeSubHeadingListStart
+			\jobItem{Clarkson Open Source Institute (COSI)}{Clarkson University}{Potsdam, NY}{2016 -May 2018}
+			{Robotics using Robot Operating System (ROS)}{}{}{}{}
+		\resumeItemListEnd
+	
+\end{document}}
